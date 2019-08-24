@@ -19,26 +19,21 @@ int main(int argc, char *argv[])
         exit(1);
     }
     char buf[BUF_SIZE];
-    printf("Under MainParent\n\tPID is %d\n", getpid());
     pid_t child, grandChild;
     int stat;
     write(1, buf, strlen(buf));
     child = fork();
     if (child < 0)
     {
-
         sprintf(buf, "Fork error\n");
         write(1, buf, strlen(buf));
         exit(1);
     }
     if (child == 0)
     {
-
-        sprintf(buf, "Under Child\n\tPID is %d and PPID is %d\n", getpid(), getppid());
-        write(1, buf, strlen(buf));
-        printf("\n");
         execv(argv[1], NULL);
         printf("\n\n\n");
+    	printf("%s\n", argv[0]);
     }
     wait(&stat);
     if (WIFEXITED(stat))
