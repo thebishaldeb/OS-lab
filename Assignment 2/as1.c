@@ -10,8 +10,9 @@
 
 #define BUF_SIZE 100
 
-void userFunction()
+void sigint_handler(int sig)
 {
+    printf("\nSignal received!\n");
     char buf[BUF_SIZE];
     pid_t child;
     printf("\nCreating Fork...\n\n");
@@ -38,7 +39,6 @@ void userFunction()
 
 int main()
 {
-    void sigint_handler(int sig);
     printf("\nPress ^C to send the signal!\n");
     while (1)
     {
@@ -49,10 +49,4 @@ int main()
         }
     }
     exit(0);
-}
-
-void sigint_handler(int sig)
-{
-    printf("\nSignal received!\n");
-    userFunction();
 }

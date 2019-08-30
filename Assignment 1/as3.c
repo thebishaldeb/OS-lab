@@ -31,9 +31,11 @@ int main(int argc, char *argv[])
     }
     if (child == 0)
     {
+        // printf("\n\n\n");
+        int x = 7;
+        // printf("X = %d", x / 0);
+        printf("%s\n", argv[0]);
         execv(argv[1], NULL);
-        printf("\n\n\n");
-    	printf("%s\n", argv[0]);
     }
     wait(&stat);
     if (WIFEXITED(stat))
