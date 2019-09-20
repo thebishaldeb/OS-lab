@@ -19,7 +19,6 @@ void sigint_handler(int sig)
     fclose(fp);
     printf("\nPID of the process to be killed is %d\n", PIDg);
     kill(PIDg, sig);
-    // char buf[BUF_SIZE];
     exit(0);
 }
 
