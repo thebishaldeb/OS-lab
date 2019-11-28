@@ -1,0 +1,13 @@
+make--> to make the .ko file which is to be loaded into the kernel
+
+sudo insmod ./Assignment-9a.ko string="$input string"
+	-->to insert the module into the kernel
+
+dmesg	-> to view the log 
+
+sudo rmmod Assignment-9a.ko
+	--> to remove the module from the kernel
+	-->after removal of the first module can only be it reinserted again
+
+modinfo Assignment-9a.ko
+	-->to view info about the module
